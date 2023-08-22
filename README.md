@@ -11,7 +11,7 @@ Change in this file `cdk.json` the value of variables:
 ```
 Remplace the ACCOUNT-NUMBER and NAME
 
-For see the arn complete run this command:
+To view the arn of a specific user run the following command
 
 ```bash
 aws sts get-caller-identity --query 'Arn' --output text
