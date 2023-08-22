@@ -1,16 +1,24 @@
+
 import * as cdk from 'aws-cdk-lib';
-import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
+import * as ec2 from 'aws-cdk-lib/aws-ec2';
+import * as cloud9 from 'aws-cdk-lib/aws-cloud9';
 
 export class CdkCloud9Stack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: cdk.App , id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
+    // Create a VPC for the Cloud9 environment
+    const vpc = new ec2.Vpc(this, 'Cloud9Vpc', {
+      maxAzs: 3, // Adjust as needed
+    });
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'CdkCloud9Queue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    // Create the Cloud9 environment
+    new cloud9.CfnEnvironmentEC2(this, 'MyCloud9Environment', {
+      instanceType: this.node.getContext('instance_type'), // Adjust as needed
+      connectionType: 'CONNECT_SSM',
+      name: this.node.getContext("name"),
+      ownerArn: this.node.getContext("user_arn"),
+      subnetId: vpc.publicSubnets[0].subnetId,
+    });
   }
 }
