@@ -1,8 +1,23 @@
-# Welcome to your CDK TypeScript project
+# Deploy a cloud9 with CDK
 
-This is a blank project for CDK development with TypeScript.
+This CDK project allows you create a cloud9 environment for a spesific user arn
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+Change in this file `cdk.json` the value of variables:
+
+```js
+"name": "Cloud9Env",
+"user_arn": "arn:aws:iam::ACCOUNT-NUMBER:NAME",
+"instance_type": "t2.micro"
+```
+Remplace the ACCOUNT-NUMBER and NAME
+
+For see the arn complete run this command:
+
+```bash
+aws sts get-caller-identity --query 'Arn' --output text
+```
+
+
 
 ## Useful commands
 
