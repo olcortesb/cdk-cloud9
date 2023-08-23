@@ -17,7 +17,48 @@ To view the arn of a specific user run the following command
 aws sts get-caller-identity --query 'Arn' --output text
 ```
 
+# Configure cloud9 by CDK 
 
+- Create github respository 
+  - https://github.com/olcortesb/cdk-cloud9 
+
+## Get Started
+
+```bash
+# Install
+npm install -g aws-cdk
+
+# CDK version
+cdk --version
+
+# CDK Bootsraping
+cdk bootstrap aws://ACCOUNT-NUMBER/REGION
+
+```
+## Hello World
+
+```bash
+# Created directory 
+mkdir hello-cdk
+cd hello-cdk
+
+# Initialize template App
+cdk init app --language typescript
+```
+
+## Destroy Stack
+
+```bash
+cdk destroy HelloCdkStack
+```
+# References:
+- [CDK Cloud 9 Sample code](https://awsbloglink.wordpress.com/2019/05/17/en-aws-cdk-cloud9/)
+
+- [CDK Profiles](https://bobbyhadz.com/blog/aws-cdk-use-different-profile)
+
+- [CDK Get Started](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html)
+
+- [CDK Hello World](https://docs.aws.amazon.com/cdk/v2/guide/hello_world.html)
 
 ## Useful commands
 
