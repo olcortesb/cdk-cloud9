@@ -34,13 +34,16 @@ cdk bootstrap aws://ACCOUNT-NUMBER/REGION
 ## CLone Repository an deploy
 
 ```bash
-cdk deploy --profile olcortesb
+# for and specific profile
+cdk deploy --profile your-profile
+# or default
+cdk deploy
 ```
 
 ## Destroy Stack
 
 ```bash
-cdk destroy HelloCdkStack
+cdk destroy CdkCloud9Stack
 ```
 # References:
 - [CDK Cloud 9 Sample code](https://awsbloglink.wordpress.com/2019/05/17/en-aws-cdk-cloud9/)
@@ -51,7 +54,7 @@ cdk destroy HelloCdkStack
 
 - [CDK Hello World](https://docs.aws.amazon.com/cdk/v2/guide/hello_world.html)
 
-## Useful commands
+### Useful commands
 
 * `npm run build`   compile typescript to js
 * `npm run watch`   watch for changes and compile
